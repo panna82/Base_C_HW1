@@ -9,7 +9,7 @@ struct Account
     double summ{};
 };
 
-void change_balance(Account account, double summ)
+void change_balance(Account& account, double summ)
 {
     account.summ = summ;
 }
@@ -31,13 +31,13 @@ int main()
     std::cin >> summ;
 
     Account a = { account_number, name, summ };
-    Account &ptra = a;
+    //Account &ptra = a;
 
     std::cout << "Введите новый баланс: ";
     std::cin >> summ;
 
-    change_balance(ptra, summ);
+    change_balance(a, summ);
 
-    std::cout << "Добрый день, " << a.name << "! На Вашем счёте №" << a.account_number << " числится сумма " << summ << " рублей.\n";
+    std::cout << "Добрый день, " << a.name << "! На Вашем счёте №" << a.account_number << " числится сумма " << a.summ << " рублей.\n";
 
 }
